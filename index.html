@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alaska ★彡 / X</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for the icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <nav class="sidebar">
+      <div class="logo"><i class="fa-brands fa-x-twitter"></i></div>
+      <ul class="nav-links">
+        <li class="active"><i class="fa-solid fa-house"></i> <span>Home</span></li>
+        <li><i class="fa-solid fa-magnifying-glass"></i> <span>Explore</span></li>
+        <li><i class="fa-solid fa-bell"></i> <span>Notifications</span></li>
+        <li><i class="fa-solid fa-envelope"></i> <span>Messages</span></li>
+        <li><i class="fa-solid fa-list"></i> <span>Lists</span></li>
+        <li><i class="fa-solid fa-bookmark"></i> <span>Bookmarks</span></li>
+        <li><i class="fa-solid fa-user"></i> <span>Profile</span></li>
+        <li><i class="fa-solid fa-ellipsis"></i> <span>More</span></li>
+      </ul>
+      <button class="post-btn">Post</button>
+      <div class="user-pill">
+        <img src="https://ui-avatars.com/api/?name=alaska&background=ff0055&color=fff" alt="avatar">
+        <div class="user-info">
+          <span class="name">alaska ★彡</span>
+          <span class="handle">@onlinegirlie</span>
+        </div>
+        <i class="fa-solid fa-ellipsis"></i>
+      </div>
+    </nav>
+
+    <!-- MAIN FEED -->
+    <main class="feed">
+      <header class="feed-header">
+        <h1>Home</h1>
+        <div class="tabs">
+          <span class="active">For you</span>
+          <span>Following</span>
+        </div>
+      </header>
+
+      <div class="compose-box">
+        <img src="https://ui-avatars.com/api/?name=alaska&background=ff0055&color=fff" alt="avatar">
+        <input type="text" placeholder="What is happening?!" id="compose-input">
+        <button id="compose-submit">Post</button>
+      </div>
+
+      <div class="feed-container" id="feed-container">
+        <!-- Posts will be injected here by JS -->
+      </div>
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="right-sidebar">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="trending">
+        <h2>Trending</h2>
+        <div class="trend-item">
+          <span class="trend-category">Trending in Film</span>
+          <span class="trend-topic">#CLUBKID</span>
+          <span class="trend-stats">7.1K posts</span>
+        </div>
+        <div class="trend-item">
+          <span class="trend-category">Movies</span>
+          <span class="trend-topic">the body</span>
+          <span class="trend-stats">4.2K posts</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
