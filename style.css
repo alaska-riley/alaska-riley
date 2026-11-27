@@ -363,3 +363,36 @@ body {
   .user-pill img { margin: 0; }
   .compose-box input { font-size: 16px; }
 }
+
+/* language: CSS, file: style.css */
+.post {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #2f3336;
+}
+.post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.post-body { flex: 1; min-width: 0; }
+.post-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+.post-name { font-weight: 700; }
+.post-handle, .post-time, .post-dot { color: #71767b; font-weight: 400; }
+.verified { color: #1d9bf0; font-size: 14px; }
+.post-text { margin: 6px 0 10px; font-size: 15px; line-height: 1.4; }
+.post-actions {
+  display: flex;
+  gap: 48px;
+  color: #71767b;
+  font-size: 13px;
+}
+.post-actions span { display: flex; align-items: center; gap: 6px; }
