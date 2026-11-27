@@ -81,3 +81,12 @@ load_tweets()
     container.innerHTML =
       '<p style="padding:16px;color:#71767b">could not load tweets.txt — check the path and that you\'re not opening index.html via file:// (fetch is blocked there).</p>';
   });
+
+  document.querySelectorAll(".nav-links li").forEach((li) => {
+  const label = li.querySelector("span")?.textContent?.trim();
+  if (label === "Home") {
+    li.addEventListener("click", () => { window.location.href = "index.html"; });
+  } else if (label === "Profile") {
+    li.addEventListener("click", () => { window.location.href = "profile.html"; });
+  }
+});
