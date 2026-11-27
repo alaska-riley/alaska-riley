@@ -1,6 +1,4 @@
-// language: JavaScript, file: posts.js
-// Edit this array to change the feed. Order = top of feed first.
-// Fields: name, handle, avatar (optional — defaults to lasker.jpg), time, text, replies, reposts, likes, views, verified
+
 const POSTS = [
   {
     name: "alaska ★彡",

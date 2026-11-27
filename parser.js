@@ -1,6 +1,6 @@
 
 const TWEETS_URL = "tweets.txt";
-const DEFAULT_AVATAR = "alaska-riley/alaska-riley/lasker.jpg";
+const DEFAULT_AVATAR = "/lasker.jpg";
 const FORCED_HANDLE = "@alaskariley";
 
 
