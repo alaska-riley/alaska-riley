@@ -1,0 +1,365 @@
+:root {
+  --bg-color: #000000;
+  --border-color: #2f3336;
+  --text-main: #e7e9ea;
+  --text-muted: #71767b;
+  --accent: #ff0055; /* Match your avatar pink */
+  --hover-bg: #181818;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  max-width: 1260px;
+  min-height: 100vh;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  width: 275px;
+  padding: 10px 20px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  font-size: 30px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background 0.2s;
+}
+
+.nav-links li:hover {
+  background: var(--hover-bg);
+}
+
+.nav-links li.active {
+  font-weight: bold;
+}
+
+.nav-links li i {
+  width: 30px;
+}
+
+.post-btn {
+  background: var(--text-main);
+  color: var(--bg-color);
+  border: none;
+  padding: 15px;
+  border-radius: 9999px;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.post-btn:hover {
+  opacity: 0.9;
+}
+
+.user-pill {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 9999px;
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.user-pill:hover {
+  background: var(--hover-bg);
+}
+
+.user-pill img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.user-info .handle {
+  color: var(--text-muted);
+}
+
+/* MAIN FEED */
+.feed {
+  flex: 1;
+  border-right: 1px solid var(--border-color);
+  max-width: 600px;
+}
+
+.feed-header {
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 10;
+}
+
+.feed-header h1 {
+  font-size: 20px;
+  padding: 15px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tabs span {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.tabs span:hover {
+  background: var(--hover-bg);
+}
+
+.tabs span.active {
+  color: var(--text-main);
+  border-bottom: 4px solid var(--accent);
+}
+
+/* COMPOSE BOX */
+.compose-box {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+}
+
+.compose-box img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.compose-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 20px;
+  outline: none;
+}
+
+#compose-submit {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+#compose-submit:hover {
+  opacity: 1;
+}
+
+/* POSTS */
+.post {
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px;
+  display: flex;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.post:hover {
+  background: var(--hover-bg);
+}
+
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-body {
+  flex: 1;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.post-header .name {
+  font-weight: bold;
+}
+
+.post-header .handle, .post-header .time {
+  color: var(--text-muted);
+}
+
+.post-text {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+
+.post-media {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.post-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.action:hover {
+  color: var(--accent);
+}
+
+.action.liked {
+  color: var(--accent);
+}
+
+/* RIGHT SIDEBAR */
+.right-sidebar {
+  width: 350px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-box {
+  background: var(--hover-bg);
+  padding: 10px 15px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  margin-left: 10px;
+  outline: none;
+  width: 100%;
+}
+
+.trending {
+  background: var(--hover-bg);
+  border-radius: 16px;
+  padding: 15px;
+}
+
+.trending h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.trend-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.trend-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.trend-category, .trend-stats {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.trend-topic {
+  font-weight: bold;
+  margin: 2px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .right-sidebar { display: none; }
+}
+
+@media (max-width: 768px) {
+  .sidebar { width: 80px; align-items: center; padding: 10px 0; }
+  .sidebar .logo, .nav-links li i { margin: 0; }
+  .nav-links li span, .post-btn, .user-info, .user-pill i { display: none; }
+  .nav-links li { justify-content: center; padding: 15px; }
+  .user-pill { padding: 0; }
+  .user-pill img { margin: 0; }
+  .compose-box input { font-size: 16px; }
+}
