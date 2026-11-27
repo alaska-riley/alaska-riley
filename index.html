@@ -96,6 +96,17 @@
 
     <!-- MAIN PROFILE -->
     <main class="feed profile-page">
+      
+      <!-- MOBILE TOP NAV -->
+      <header class="mobile-top-nav">
+        <div class="logo"><i class="fa-brands fa-x-twitter"></i></div>
+        <div class="mobile-auth">
+          <a href="#" class="login-btn">Log in</a>
+          <a href="#" class="signup-btn">Sign up</a>
+        </div>
+      </header>
+
+      <!-- DESKTOP HEADER (Hidden on Mobile) -->
       <header class="profile-header">
         <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="profile-header-text">
@@ -109,38 +120,41 @@
         <img src="/banner.jpg" alt="alaska ★彡 banner">
       </div>
 
-      <!-- AVATAR + EDIT ROW -->
+      <!-- AVATAR + ACTIONS ROW -->
       <div class="profile-avatar-row">
         <img class="profile-avatar" src="/lasker.jpg" alt="alaska ★彡 (@alaskariley) profile photo">
-        <button class="edit-profile-btn">Edit profile</button>
+        <div class="profile-actions">
+          <button class="action-btn mention-btn"><i class="fa-solid fa-ellipsis"></i></button>
+          <button class="action-btn follow-btn" id="follow-btn">Follow</button>
+        </div>
       </div>
 
       <!-- IDENTITY BLOCK -->
       <div class="profile-info">
         <h2 class="profile-name">
           alaska ★彡
-          <i class="fa-solid fa-circle-check verified"></i>
         </h2>
-        <span class="profile-handle">@alaskariley</span>
+        <span class="profile-handle">@onlinegirlie</span>
         <p class="profile-bio">
-          was in clubkid. i have notes. i will be sharing them at length.
+          you can be anyone when you’re a girl online
         </p>
         <div class="profile-meta">
-          <span><i class="fa-solid fa-location-dot"></i> flopville</span>
-          <span><i class="fa-solid fa-calendar"></i> joined november 2023</span>
+          <span><i class="fa-solid fa-location-dot"></i> nyc 18+</span>
+          <span><i class="fa-solid fa-link"></i> <a href="#" class="profile-link">linktr.ee/onlinegirlie</a></span>
+          <span><i class="fa-solid fa-calendar"></i> Joined February 2020</span>
         </div>
         <div class="profile-stats">
-          <a href="#" class="stat"><strong>312</strong> Following</a>
-          <a href="#" class="stat"><strong>1,186</strong> Followers</a>
+          <a href="#" class="stat"><strong>1,186</strong> Following</a>
+          <a href="#" class="stat"><strong>31.4K</strong> Followers</a>
         </div>
       </div>
 
       <!-- TABS -->
       <div class="profile-tabs">
-        <span class="active">Posts</span>
+        <span class="active">Posts <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></span>
         <span>Replies</span>
+        <span>Reposts</span>
         <span>Media</span>
-        <span>Likes</span>
       </div>
 
       <!-- TIMELINE -->

@@ -3,7 +3,7 @@
   --border-color: #2f3336;
   --text-main: #e7e9ea;
   --text-muted: #71767b;
-  --accent: #ff0055; /* Match your avatar pink */
+  --accent: #ff0055;
   --hover-bg: #181818;
 }
 
@@ -133,7 +133,50 @@ body {
   min-width: 0;
 }
 
-/* PROFILE HEADER */
+/* MOBILE TOP NAV */
+.mobile-top-nav {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.mobile-top-nav .logo {
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-auth {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.login-btn {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+}
+
+.signup-btn {
+  background: var(--text-main);
+  color: var(--bg-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+}
+
+/* DESKTOP HEADER */
 .profile-header {
   display: flex;
   align-items: center;
@@ -195,7 +238,7 @@ body {
   display: block;
 }
 
-/* AVATAR + EDIT BUTTON */
+/* AVATAR + ACTIONS */
 .profile-avatar-row {
   position: relative;
   padding: 0 16px;
@@ -214,7 +257,14 @@ body {
   background: var(--bg-color);
 }
 
-.edit-profile-btn {
+.profile-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.action-btn {
   background: transparent;
   color: var(--text-main);
   border: 1px solid var(--border-color);
@@ -224,11 +274,24 @@ body {
   font-size: 15px;
   cursor: pointer;
   transition: background 0.2s;
-  margin-bottom: 12px;
 }
 
-.edit-profile-btn:hover {
+.action-btn:hover {
   background: var(--hover-bg);
+}
+
+.mention-btn {
+  padding: 8px 12px;
+}
+
+.follow-btn {
+  background: var(--text-main);
+  color: var(--bg-color);
+  border: 1px solid var(--text-main);
+}
+
+.follow-btn:hover {
+  background: #d7dbdc;
 }
 
 /* IDENTITY BLOCK */
@@ -272,6 +335,15 @@ body {
   gap: 5px;
 }
 
+.profile-link {
+  color: #1d9bf0;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  text-decoration: underline;
+}
+
 .profile-stats {
   display: flex;
   gap: 20px;
@@ -306,6 +378,10 @@ body {
   color: var(--text-muted);
   font-weight: bold;
   transition: background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
 .profile-tabs span:hover {
@@ -480,60 +556,25 @@ body {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 68px;
-    align-items: center;
-    padding: 10px 0;
-    border-right: 1px solid var(--border-color);
-  }
-  
-  .sidebar .logo {
-    margin-bottom: 5px;
-    padding: 0;
-    font-size: 24px;
-  }
-  
-  .nav-links {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .nav-links li {
-    justify-content: center;
-    padding: 12px;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-  }
-  
-  .nav-links li span,
-  .post-btn,
-  .user-info,
-  .user-pill i {
     display: none;
-  }
-  
-  .user-pill {
-    padding: 10px;
-  }
-  
-  .user-pill img {
-    margin: 0;
-    width: 36px;
-    height: 36px;
   }
 
   .feed {
-    width: calc(100vw - 68px);
+    width: 100%;
     max-width: 100%;
-    flex: none;
     border-right: none;
   }
 
+  .mobile-top-nav {
+    display: flex;
+  }
+
+  .profile-header {
+    display: none;
+  }
+
   .profile-banner {
-    aspect-ratio: 2.5 / 1;
+    aspect-ratio: 3 / 1;
     width: 100%;
     border-radius: 0;
   }
@@ -546,13 +587,24 @@ body {
   .profile-avatar {
     width: 80px;
     height: 80px;
-    border-width: 3px;
+    border-width: 4px;
   }
 
-  .edit-profile-btn {
-    padding: 6px 12px;
-    font-size: 14px;
-    margin-bottom: 8px;
+  .profile-actions {
+    width: 100%;
+    margin-bottom: 12px;
+    gap: 8px;
+  }
+
+  .action-btn {
+    flex: 1;
+    padding: 8px 0;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .mention-btn {
+    display: none;
   }
 
   .profile-info {
@@ -560,7 +612,7 @@ body {
   }
   
   .profile-bio {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .profile-tabs span {
@@ -570,15 +622,5 @@ body {
 
   .post {
     padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-avatar {
-    width: 72px;
-    height: 72px;
-  }
-  .profile-banner {
-    aspect-ratio: 2.2 / 1;
   }
 }

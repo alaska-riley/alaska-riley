@@ -1,12 +1,9 @@
-
-
 let POSTS = [];
 
 function build_post_element(post) {
   const el = document.createElement("article");
   el.className = "post";
 
-  
   const safe_text = post.text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -44,6 +41,7 @@ function render_feed() {
 
 function handle_compose() {
   const input = document.getElementById("compose-input");
+  if (!input) return;
   const text = input.value.trim();
   if (!text) return;
 
@@ -64,7 +62,7 @@ function handle_compose() {
   render_feed();
 }
 
-
+// Compose guard
 const compose_submit = document.getElementById("compose-submit");
 const compose_input = document.getElementById("compose-input");
 if (compose_submit && compose_input) {
@@ -74,6 +72,25 @@ if (compose_submit && compose_input) {
   });
 }
 
+// Follow Button Toggle
+const follow_btn = document.getElementById("follow-btn");
+if (follow_btn) {
+  follow_btn.addEventListener("click", () => {
+    if (follow_btn.textContent === "Follow") {
+      follow_btn.textContent = "Following";
+      follow_btn.style.background = "transparent";
+      follow_btn.style.color = "var(--text-main)";
+      follow_btn.style.borderColor = "var(--border-color)";
+    } else {
+      follow_btn.textContent = "Follow";
+      follow_btn.style.background = "var(--text-main)";
+      follow_btn.style.color = "var(--bg-color)";
+      follow_btn.style.borderColor = "var(--text-main)";
+    }
+  });
+}
+
+// Load Feed
 load_tweets()
   .then((posts) => {
     POSTS = posts;
@@ -82,11 +99,13 @@ load_tweets()
   .catch((err) => {
     console.error(err);
     const container = document.getElementById("feed-container");
-    container.innerHTML =
-      '<p style="padding:16px;color:#71767b">could not load tweets.txt — check the path and that you\'re not opening index.html via file:// (fetch is blocked there).</p>';
+    if (container) {
+      container.innerHTML =
+        '<p style="padding:16px;color:#71767b">could not load tweets.txt — check the path and that you\'re not opening index.html via file:// (fetch is blocked there).</p>';
+    }
   });
 
-
+// Sidebar nav (no-op placeholder for single-page setup)
 document.querySelectorAll(".nav-links li").forEach((li) => {
   const label = li.querySelector("span")?.textContent?.trim();
   if (label === "Home" || label === "Profile") {
