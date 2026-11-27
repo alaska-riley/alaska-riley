@@ -1,5 +1,4 @@
-// language: JavaScript, file: script.js
-// Renders the parsed tweets into the feed and handles the compose box.
+
 
 let POSTS = [];
 
@@ -7,7 +6,7 @@ function build_post_element(post) {
   const el = document.createElement("article");
   el.className = "post";
 
-  // text may contain newlines — escape and convert to <br>
+  
   const safe_text = post.text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -50,25 +49,30 @@ function handle_compose() {
 
   POSTS.unshift({
     name: "alaska ★彡",
-    handle: "@onlinegirlie",
-    avatar: "alaska-riley/alaska-riley/lasker.jpg",
+    handle: "@alaskariley",
+    avatar: "/lasker.jpg",
     time: "now",
     text: text,
     replies: "0",
     reposts: "0",
     likes: "0",
     views: "0",
-    verified: false,
+    verified: true,
   });
 
   input.value = "";
   render_feed();
 }
 
-document.getElementById("compose-submit").addEventListener("click", handle_compose);
-document.getElementById("compose-input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") handle_compose();
-});
+
+const compose_submit = document.getElementById("compose-submit");
+const compose_input = document.getElementById("compose-input");
+if (compose_submit && compose_input) {
+  compose_submit.addEventListener("click", handle_compose);
+  compose_input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") handle_compose();
+  });
+}
 
 load_tweets()
   .then((posts) => {
@@ -82,11 +86,10 @@ load_tweets()
       '<p style="padding:16px;color:#71767b">could not load tweets.txt — check the path and that you\'re not opening index.html via file:// (fetch is blocked there).</p>';
   });
 
-  document.querySelectorAll(".nav-links li").forEach((li) => {
+
+document.querySelectorAll(".nav-links li").forEach((li) => {
   const label = li.querySelector("span")?.textContent?.trim();
-  if (label === "Home") {
+  if (label === "Home" || label === "Profile") {
     li.addEventListener("click", () => { window.location.href = "index.html"; });
-  } else if (label === "Profile") {
-    li.addEventListener("click", () => { window.location.href = "profile.html"; });
   }
 });
